@@ -1,3 +1,3 @@
 import ReactCloudinaryUploader from './ReactCloudinaryUploader';
 
-export {ReactCloudinaryUploader};
+export default ReactCloudinaryUploader;
