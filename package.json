@@ -1,5 +1,5 @@
 {
-  "name": "react-cloudinary-uploader",
+  "name": "@app-masters/react-cloudinary-uploader",
   "version": "0.0.1",
   "description": "A file uploader in React for uploading the picture to Cloudinary",
   "main": "src/index.js",
