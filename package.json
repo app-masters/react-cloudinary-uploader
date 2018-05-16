@@ -2,7 +2,7 @@
   "name": "@app-masters/react-cloudinary-uploader",
   "version": "0.1.1",
   "description": "A file uploader in React for uploading the picture to Cloudinary",
-  "main": "build/index.js",
+  "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepublish": "babel ./src --out-dir ./dist --source-maps --presets env,react"
