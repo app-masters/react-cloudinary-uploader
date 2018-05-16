@@ -214,30 +214,30 @@ class ReactCloudinaryUploader extends Component {
     }
 }
 
-ReactCloudinaryUploader.propTypes = {
-    cloudName: React.PropTypes.string.isRequired,
-    uploadPreset: React.PropTypes.string.isRequired,
-    showPoweredBy: React.PropTypes.bool,
-    allowedFormats: React.PropTypes.array,
-    maxFileSize: React.PropTypes.number,
-    maxImageWidth: React.PropTypes.number,
-    maxImageHeight: React.PropTypes.number,
-    sources: React.PropTypes.arrayOf(React.PropTypes.string),
-    defaultSource: React.PropTypes.string,
-    multiple: React.PropTypes.bool,
-    maxFiles: React.PropTypes.number,
-    cropping: React.PropTypes.string,
-    croppingAspectRatio: React.PropTypes.number,
-    publicId: React.PropTypes.string,
-    folder: React.PropTypes.string,
-    tags: React.PropTypes.arrayOf(React.PropTypes.string),
-    resourceType: React.PropTypes.string,
-    contextAlt: React.PropTypes.string,
-    contextCaption: React.PropTypes.string,
-    buttonClass: React.PropTypes.string,
-    buttonCaption: React.PropTypes.string,
-    onUploadSuccess: React.PropTypes.object
-};
+// ReactCloudinaryUploader.propTypes = {
+//     cloudName: React.PropTypes.string.isRequired,
+//     uploadPreset: React.PropTypes.string.isRequired,
+//     showPoweredBy: React.PropTypes.bool,
+//     allowedFormats: React.PropTypes.array,
+//     maxFileSize: React.PropTypes.number,
+//     maxImageWidth: React.PropTypes.number,
+//     maxImageHeight: React.PropTypes.number,
+//     sources: React.PropTypes.arrayOf(React.PropTypes.string),
+//     defaultSource: React.PropTypes.string,
+//     multiple: React.PropTypes.bool,
+//     maxFiles: React.PropTypes.number,
+//     cropping: React.PropTypes.string,
+//     croppingAspectRatio: React.PropTypes.number,
+//     publicId: React.PropTypes.string,
+//     folder: React.PropTypes.string,
+//     tags: React.PropTypes.arrayOf(React.PropTypes.string),
+//     resourceType: React.PropTypes.string,
+//     contextAlt: React.PropTypes.string,
+//     contextCaption: React.PropTypes.string,
+//     buttonClass: React.PropTypes.string,
+//     buttonCaption: React.PropTypes.string,
+//     onUploadSuccess: React.PropTypes.object
+// };
 
 ReactCloudinaryUploader.defaultProps = {
     showPoweredBy: false,
