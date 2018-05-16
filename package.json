@@ -1,6 +1,6 @@
 {
   "name": "@app-masters/react-cloudinary-uploader",
-  "version": "0.0.8",
+  "version": "0.0.4",
   "description": "A file uploader in React for uploading the picture to Cloudinary",
   "main": "build/index.js",
   "scripts": {
@@ -29,8 +29,5 @@
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1"
-  },
-  "dependencies": {
-    "prop-types": "^15.6.1"
   }
 }
