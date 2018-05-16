@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -6,9 +6,13 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = require("react");
+var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -53,7 +57,7 @@ var ReactCloudinaryUploader = function (_Component) {
     }
 
     _createClass(ReactCloudinaryUploader, [{
-        key: "uuid",
+        key: 'uuid',
         value: function uuid() {
             function guid() {
                 function s4() {
@@ -66,7 +70,7 @@ var ReactCloudinaryUploader = function (_Component) {
             return guid();
         }
     }, {
-        key: "getUploadOptions",
+        key: 'getUploadOptions',
         value: function getUploadOptions() {
             var options = {
                 cloud_name: this.props.cloudName,
@@ -123,7 +127,7 @@ var ReactCloudinaryUploader = function (_Component) {
             return options;
         }
     }, {
-        key: "setError",
+        key: 'setError',
         value: function setError(isError, errorMessage) {
             this.setState({
                 isError: true,
@@ -131,7 +135,7 @@ var ReactCloudinaryUploader = function (_Component) {
             });
         }
     }, {
-        key: "setUploadResult",
+        key: 'setUploadResult',
         value: function setUploadResult(uploadedImage) {
             console.log("uploadedImage", uploadedImage);
             this.setState({
@@ -155,7 +159,7 @@ var ReactCloudinaryUploader = function (_Component) {
             if (this.props.onUploadSuccess) this.props.onUploadSuccess(uploadedImage);
         }
     }, {
-        key: "handleClick",
+        key: 'handleClick',
         value: function handleClick(ev) {
             var self = this;
             console.log(this);
@@ -185,7 +189,7 @@ var ReactCloudinaryUploader = function (_Component) {
             }
         }
     }, {
-        key: "render",
+        key: 'render',
         value: function render() {
             var _this2 = this;
 
@@ -195,16 +199,16 @@ var ReactCloudinaryUploader = function (_Component) {
             var uploader_id = "uploader_" + this.state.uuid;
             var image = this.state.thumbnailUrl ? this.state.thumbnailUrl : '#';
             return _react2.default.createElement(
-                "section",
+                'section',
                 null,
                 _react2.default.createElement(
-                    "div",
+                    'div',
                     null,
-                    _react2.default.createElement("img", { src: image })
+                    _react2.default.createElement('img', { src: image })
                 ),
                 _react2.default.createElement(
-                    "a",
-                    { ref: "uploader", id: uploader_id, href: "#",
+                    'a',
+                    { ref: 'uploader', id: uploader_id, href: '#',
                         className: this.props.buttonClass,
                         onClick: function onClick() {
                             return _this2.handleClick();
@@ -214,7 +218,7 @@ var ReactCloudinaryUploader = function (_Component) {
             );
         }
     }], [{
-        key: "open",
+        key: 'open',
         value: function open(options) {
             console.log("open");
 
@@ -251,28 +255,28 @@ var ReactCloudinaryUploader = function (_Component) {
 }(_react.Component);
 
 ReactCloudinaryUploader.propTypes = {
-    cloudName: _react2.default.PropTypes.string.isRequired,
-    uploadPreset: _react2.default.PropTypes.string.isRequired,
-    showPoweredBy: _react2.default.PropTypes.bool,
-    allowedFormats: _react2.default.PropTypes.array,
-    maxFileSize: _react2.default.PropTypes.number,
-    maxImageWidth: _react2.default.PropTypes.number,
-    maxImageHeight: _react2.default.PropTypes.number,
-    sources: _react2.default.PropTypes.arrayOf(_react2.default.PropTypes.string),
-    defaultSource: _react2.default.PropTypes.string,
-    multiple: _react2.default.PropTypes.bool,
-    maxFiles: _react2.default.PropTypes.number,
-    cropping: _react2.default.PropTypes.string,
-    croppingAspectRatio: _react2.default.PropTypes.number,
-    publicId: _react2.default.PropTypes.string,
-    folder: _react2.default.PropTypes.string,
-    tags: _react2.default.PropTypes.arrayOf(_react2.default.PropTypes.string),
-    resourceType: _react2.default.PropTypes.string,
-    contextAlt: _react2.default.PropTypes.string,
-    contextCaption: _react2.default.PropTypes.string,
-    buttonClass: _react2.default.PropTypes.string,
-    buttonCaption: _react2.default.PropTypes.string,
-    onUploadSuccess: _react2.default.PropTypes.object
+    cloudName: _propTypes2.default.string.isRequired,
+    uploadPreset: _propTypes2.default.string.isRequired,
+    showPoweredBy: _propTypes2.default.bool,
+    allowedFormats: _propTypes2.default.array,
+    maxFileSize: _propTypes2.default.number,
+    maxImageWidth: _propTypes2.default.number,
+    maxImageHeight: _propTypes2.default.number,
+    sources: _propTypes2.default.arrayOf(_propTypes2.default.string),
+    defaultSource: _propTypes2.default.string,
+    multiple: _propTypes2.default.bool,
+    maxFiles: _propTypes2.default.number,
+    cropping: _propTypes2.default.string,
+    croppingAspectRatio: _propTypes2.default.number,
+    publicId: _propTypes2.default.string,
+    folder: _propTypes2.default.string,
+    tags: _propTypes2.default.arrayOf(_propTypes2.default.string),
+    resourceType: _propTypes2.default.string,
+    contextAlt: _propTypes2.default.string,
+    contextCaption: _propTypes2.default.string,
+    buttonClass: _propTypes2.default.string,
+    buttonCaption: _propTypes2.default.string,
+    onUploadSuccess: _propTypes2.default.object
 };
 
 ReactCloudinaryUploader.defaultProps = {
