@@ -1,1 +1,1 @@
-{"version":3,"sources":["../src/index.js"],"names":["ReactCloudinaryUploader"],"mappings":";;;;;;AAAA;;;;;;kBAEeA,iC","file":"index.js","sourcesContent":["import ReactCloudinaryUploader from './ReactCloudinaryUploader';\r\n\r\nexport default ReactCloudinaryUploader;"]}
+{"version":3,"sources":["../src/index.js"],"names":["ReactCloudinaryUploader"],"mappings":";;;;;;AAAA;;;;;;kBAEeA,iC","file":"index.js","sourcesContent":["import ReactCloudinaryUploader from './ReactCloudinaryUploader';\n\nexport default ReactCloudinaryUploader;"]}
