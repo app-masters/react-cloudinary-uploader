@@ -1,5 +1,7 @@
 # react-cloudinary-uploader - WIP!!!
 
+V-0.1.3
+
 A file uploader in React for uploading the picture to Cloudinary
 
 
@@ -29,7 +31,7 @@ let options = {
     multiple: true,
     returnJustUrl: true
 };
-        
+
 ReactCloudinaryUploader.open(options).then(image=>{
     if (this.props.returnJustUrl)
         image = image.url;
@@ -65,8 +67,8 @@ Allow you to use it like a component, showing a button and the result image.
 
 The component accepts few properties as input. cloudName and uploadPreset are required properties for this component.
 * **cloudName**: the cloud name that you can find in your configuration in Cloudinary.
-* **uploadPreset**: The upload_preset that you can find in your settins (Upload) in Cloudinary. 
-* **showPoweredBy** [true | false]: It shows the poweredBy logo in the widget. 
+* **uploadPreset**: The upload_preset that you can find in your settins (Upload) in Cloudinary.
+* **showPoweredBy** [true | false]: It shows the poweredBy logo in the widget.
 * **allowedFormats**: An array of allowed format. (e.g. ['jpeg', 'png'])
 * **maxFileSize**: If specified, perform client side validation that prevents uploading files bigger than the given bytes size (e.g. 130000)
 * **maxImageWidth**: If specified, client-side scale-down resizing takes place before uploading if the width of the selected file is bigger than the specified value. (e.g. 2000)
