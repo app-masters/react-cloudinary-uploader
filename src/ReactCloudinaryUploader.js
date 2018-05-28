@@ -36,18 +36,18 @@ class ReactCloudinaryUploader extends Component {
             cloudinary.openUploadWidget(options,
                 (error, result) => {
                     if (error) {
-                        // self.setError(true, error);
                         reject(error);
                         return false;
                     }
                     if (!result || result.length === 0) {
-                        // self.setError(true, 'No result from Cloudinary');
                         reject(new Error("No result from Cloudinary"));
                         return false;
                     }
-                    // let uploadedImage = result[0];
-                    // self.setUploadResult(uploadedImage);
-                    console.log("uploadResult",result);
+
+                    result = result.map(image => {
+                        image.url = `https://${image.url.replace('http://','')}`
+                        return image;
+                    });
 
                     if (options.returnJustUrl)
                         result = result.map(image=>image.url);
