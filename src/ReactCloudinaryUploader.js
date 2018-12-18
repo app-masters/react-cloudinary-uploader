@@ -35,6 +35,7 @@ class ReactCloudinaryUploader extends Component {
         return new Promise((fulfil, reject) => {
             cloudinary.openUploadWidget(options,
                 (error, result) => {
+                    if(!Array.isArray(result)) result = [result];
                     if (error) {
                         reject(error);
                         return false;
