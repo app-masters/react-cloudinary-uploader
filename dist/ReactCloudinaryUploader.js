@@ -220,6 +220,7 @@ var ReactCloudinaryUploader = function (_Component) {
 
             return new Promise(function (fulfil, reject) {
                 cloudinary.openUploadWidget(options, function (error, result) {
+                    if (!Array.isArray(result)) result = [result];
                     if (error) {
                         reject(error);
                         return false;

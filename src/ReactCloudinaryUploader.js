@@ -35,7 +35,6 @@ class ReactCloudinaryUploader extends Component {
         return new Promise((fulfil, reject) => {
             cloudinary.openUploadWidget(options,
                 (error, result) => {
-                    if(!Array.isArray(result)) result = [result];
                     if (error) {
                         reject(error);
                         return false;
@@ -44,19 +43,22 @@ class ReactCloudinaryUploader extends Component {
                         reject(new Error("No result from Cloudinary"));
                         return false;
                     }
-
-                    result = result.map(image => {
-                        image.url = `https://${image.url.replace('http://','')}`
-                        return image;
-                    });
-
-                    if (options.returnJustUrl)
-                        result = result.map(image=>image.url);
-
-                    if (!options.multiple)
-                        result = result[0];
-
-                    fulfil(result);
+                    if(result.event === 'success') {
+                        result = result.info;
+                        if(!Array.isArray(result)) result = [result];
+                        result = result.map(image => {
+                            image.url = `https://${image.url.replace('http://','')}`
+                            return image;
+                        });
+    
+                        if (options.returnJustUrl)
+                            result = result.map(image=>image.url);
+    
+                        if (!options.multiple)
+                            result = result[0];
+    
+                        fulfil(result);
+                    }
                     return true;
                 }
             );
