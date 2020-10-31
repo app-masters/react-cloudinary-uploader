@@ -1,15 +1,12 @@
-# react-cloudinary-uploader - WIP!!!
+# react-cloudinary-uploader
 
-V-0.1.3
+A Cloudinary React file uploader.
 
-A file uploader in React for uploading the picture to Cloudinary
-
-
-# Installation
+# Installation and usage
 
 ```npm install @app-masters/react-cloudinary-uploader --save```
 
-# Usage
+## Usage
 
 You ever must import cloudinary globals on your html head.
 
@@ -18,13 +15,11 @@ You ever must import cloudinary globals on your html head.
 After this you could choose between to uses methods; `Component` and `Static`
 
 
-
-
 ### Static
 
 You can use ReactCloudinaryUploader over static call receiving a promisse.
 
-```
+```javascript
 let options = {
     cloud_name: "demo",
     upload_preset: "a5vxnzbp",
@@ -45,14 +40,14 @@ ReactCloudinaryUploader.open(options).then(image=>{
 
 Allow you to use it like a component, showing a button and the result image.
 
-```
-    <ReactCloudinaryUploader
-        cloudName='appmasters-io'
-        uploadPreset='willim-dev'
-        onUploadSuccess={(image)=>{
-            console.log("image",image);
-        }}
-    />
+```javascript
+<ReactCloudinaryUploader
+    cloudName='appmasters-io'
+    uploadPreset='willim-dev'
+    onUploadSuccess={(image)=>{
+        console.log("success uploading! Image data",image);
+    }}
+/>
 ```
 
 ## Options
