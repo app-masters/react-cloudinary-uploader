@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -6,9 +6,11 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = require("react");
+var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
+
+var _locale = require('./locale');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -53,7 +55,7 @@ var ReactCloudinaryUploader = function (_Component) {
     }
 
     _createClass(ReactCloudinaryUploader, [{
-        key: "uuid",
+        key: 'uuid',
         value: function uuid() {
             function guid() {
                 function s4() {
@@ -66,7 +68,7 @@ var ReactCloudinaryUploader = function (_Component) {
             return guid();
         }
     }, {
-        key: "getUploadOptions",
+        key: 'getUploadOptions',
         value: function getUploadOptions() {
             var options = {
                 cloud_name: this.props.cloudName,
@@ -123,7 +125,7 @@ var ReactCloudinaryUploader = function (_Component) {
             return options;
         }
     }, {
-        key: "setError",
+        key: 'setError',
         value: function setError(isError, errorMessage) {
             this.setState({
                 isError: true,
@@ -131,7 +133,7 @@ var ReactCloudinaryUploader = function (_Component) {
             });
         }
     }, {
-        key: "setUploadResult",
+        key: 'setUploadResult',
         value: function setUploadResult(uploadedImage) {
             console.log("uploadedImage", uploadedImage);
             this.setState({
@@ -155,7 +157,7 @@ var ReactCloudinaryUploader = function (_Component) {
             if (this.props.onUploadSuccess) this.props.onUploadSuccess(uploadedImage);
         }
     }, {
-        key: "handleClick",
+        key: 'handleClick',
         value: function handleClick(ev) {
             var self = this;
             console.log(this);
@@ -185,7 +187,7 @@ var ReactCloudinaryUploader = function (_Component) {
             }
         }
     }, {
-        key: "render",
+        key: 'render',
         value: function render() {
             var _this2 = this;
 
@@ -195,16 +197,16 @@ var ReactCloudinaryUploader = function (_Component) {
             var uploader_id = "uploader_" + this.state.uuid;
             var image = this.state.thumbnailUrl ? this.state.thumbnailUrl : '#';
             return _react2.default.createElement(
-                "section",
+                'section',
                 null,
                 _react2.default.createElement(
-                    "div",
+                    'div',
                     null,
-                    _react2.default.createElement("img", { src: image })
+                    _react2.default.createElement('img', { src: image })
                 ),
                 _react2.default.createElement(
-                    "a",
-                    { ref: "uploader", id: uploader_id, href: "#",
+                    'a',
+                    { ref: 'uploader', id: uploader_id, href: '#',
                         className: this.props.buttonClass,
                         onClick: function onClick() {
                             return _this2.handleClick();
@@ -214,13 +216,15 @@ var ReactCloudinaryUploader = function (_Component) {
             );
         }
     }], [{
-        key: "open",
+        key: 'open',
         value: function open(options) {
             console.log("open");
 
+            if (!options.text) {
+                options.text = _locale.locale;
+            }
             return new Promise(function (fulfil, reject) {
                 cloudinary.openUploadWidget(options, function (error, result) {
-                    if (!Array.isArray(result)) result = [result];
                     if (error) {
                         reject(error);
                         return false;
@@ -229,19 +233,22 @@ var ReactCloudinaryUploader = function (_Component) {
                         reject(new Error("No result from Cloudinary"));
                         return false;
                     }
+                    if (result.event === 'success') {
+                        result = result.info;
+                        if (!Array.isArray(result)) result = [result];
+                        result = result.map(function (image) {
+                            image.url = 'https://' + image.url.replace('http://', '');
+                            return image;
+                        });
 
-                    result = result.map(function (image) {
-                        image.url = "https://" + image.url.replace('http://', '');
-                        return image;
-                    });
+                        if (options.returnJustUrl) result = result.map(function (image) {
+                            return image.url;
+                        });
 
-                    if (options.returnJustUrl) result = result.map(function (image) {
-                        return image.url;
-                    });
+                        if (!options.multiple) result = result[0];
 
-                    if (!options.multiple) result = result[0];
-
-                    fulfil(result);
+                        fulfil(result);
+                    }
                     return true;
                 });
             });

@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { locale } from './locale';
 
 class ReactCloudinaryUploader extends Component {
 
@@ -31,7 +32,10 @@ class ReactCloudinaryUploader extends Component {
 
     static open(options) {
         console.log("open");
-
+        
+        if (!options.text) {
+            options.text = locale;
+        }
         return new Promise((fulfil, reject) => {
             cloudinary.openUploadWidget(options,
                 (error, result) => {
