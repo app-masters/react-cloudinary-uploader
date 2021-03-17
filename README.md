@@ -82,3 +82,40 @@ The component accepts few properties as input. cloudName and uploadPreset are re
 * **contextCaption**: Additional context metadata to attach to the uploaded images.
 * **buttonClass**: Allows overriding the default CSS class name of the upload button added to your site.
 * **buttonCaption**: Allows overriding the default caption of the upload button added to your site.
+
+## Translations and locales
+
+### Currently available locales
+
+* **English US**: 'en' - default language
+* **Portuguese BR**: 'ptbr'
+
+### How to use
+
+To use an available translation, set the **language** option for ReactCloudinaryUploader:
+
+```javascript
+let options = {
+    ...,
+   language: "ptbr"
+};
+
+ReactCloudinaryUploader.open(options).then(image=>{...}
+
+```
+
+### How to add a new translation
+
+To add a new translation, you need to override some [cloudinary tags](https://widget.cloudinary.com/v2.0/global/text.json).
+
+To do so, in ```src/locale.js``` add a new variable with the translated keys and export it as a new locale, as shown below:
+
+```javascript
+const newLocaleTranslations = {...}
+
+export const locale = {
+	'ptbr': ptBrTranslations,
+    'newLocale': newLocaleTranslations
+};
+
+```
