@@ -1,5 +1,8 @@
 # react-cloudinary-uploader
 
+![](https://img.shields.io/npm/dt/@app-masters/react-cloudinary-uploader?style=for-the-badge)
+[![](https://img.shields.io/badge/NPM-react--cloudinary--uploader-red?logo=npm&style=?style=for-the-badge)](https://www.npmjs.com/package/@app-masters/react-cloudinary-uploader)
+
 A Cloudinary React file uploader.
 
 # Installation and usage
